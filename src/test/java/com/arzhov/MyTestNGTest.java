@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -17,7 +18,7 @@ public class MyTestNGTest {
     public static void setup(){
         String pathToChromeDriver = "D:\\ProgramFiles\\chromedriver_win32";
         System.setProperty("webdriver.chrome.DRIVER", pathToChromeDriver);
-        DRIVER = new ChromeDriver();
+        DRIVER = new ChromeDriver(initChromeOptions());
     }
 
     @Test
@@ -43,6 +44,25 @@ public class MyTestNGTest {
 
     @AfterClass
     public static void teardown(){
-        DRIVER.close();
+        DRIVER.quit();
+    }
+
+    private static ChromeOptions initChromeOptions(){
+        ChromeOptions options = new ChromeOptions();
+//        options.setBinary("D:\\ProgramFiles\\GoogleChromePortableTest\\GoogleChromePortable.exe");
+
+        options.addArguments("start-maximized"); // open Browser in maximized mode
+//        options.addArguments("disable-infobars"); // disabling infobars
+//        options.addArguments("--disable-extensions"); // disabling extensions
+//        options.addArguments("--disable-gpu"); // applicable to windows os only
+//        options.addArguments("--no-sandbox"); // Bypass OS security model
+//        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+        options.addArguments("user-data-dir=C:\\Users\\hovhannesa\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1");
+
+
+//        options.setExperimentalOption("useAutomationExtension", false);
+//        options.setHeadless(true);
+
+        return options;
     }
 }
