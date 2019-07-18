@@ -57,7 +57,8 @@ public class MyTestNGTest {
 //        options.addArguments("--disable-gpu"); // applicable to windows os only
 //        options.addArguments("--no-sandbox"); // Bypass OS security model
 //        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-        options.addArguments("user-data-dir=C:\\Users\\hovhannesa\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1");
+        options.addArguments("profile-directory=Profile 1");
+        options.addArguments("user-data-dir=C:\\Users\\hovhannesa\\AppData\\Local\\Google\\Chrome\\User Data");
 
 
 //        options.setExperimentalOption("useAutomationExtension", false);
